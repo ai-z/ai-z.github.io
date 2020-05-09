@@ -1,8 +1,11 @@
 title: AI-Z
 description: GPU usage graph on the command-line, AI benchmarks
-show_downloads: true
+show_downloads: false
 google_analytics: UA-136781191-2
 theme: jekyll-theme-hacker
 
 email: mathieu.poliquin@gmail.com
 url: "https://www.ai-z.org"
+
+github:
+  repository_url: https://github.com/ai-z/ai-z
