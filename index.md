@@ -14,3 +14,7 @@ cd ai-z
 pip3 install -r requirements.txt
 python3 ai-z.py
 ```
+### Issues
+Known issue: AMD GPUs name will be displayed as 'cardX'
+
+Please post issues at: [Github issues page](https://github.com/ai-z/ai-z/issues)
