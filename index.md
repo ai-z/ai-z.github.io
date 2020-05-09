@@ -2,7 +2,7 @@
 layout: default
 ---
 
-AI-Z is a tool to display hardware resource usage and info. Supports both NVIDIA and AMD GPUs
+AI-Z is a tool to display hardware resource usage and info on linux. Supports both NVIDIA and AMD GPUs.
 
 
 ![screenhsot](./assets/screenshot01.png)
@@ -20,3 +20,8 @@ Known issues:
 *   AMD GPUs name will be displayed as 'cardX'
 *   PCIE bandwith usage graph on NVDIA cards is not correct
 
+
+### Planned features
+*   Support MacOS and Windows
+*   Add some AI benchmarks using TF Lite
+*   Add bandwidth and gflops test
