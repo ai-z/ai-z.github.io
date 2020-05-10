@@ -10,10 +10,13 @@ AI-Z is a tool to display hardware resource usage and info on linux. Supports bo
 ### Install and usage
 ```
 git clone https://github.com/ai-z/ai-z.git
-cd ai-z
+cd ai-z/aiz
 pip3 install -r requirements.txt
 python3 ai-z.py
 ```
+
+Note: you may notice that you can do 'pip3 install ai-z' but there is some issues with it, will resolve asap. In the meantime please 'git clone' instead
+
 ### Issues
 Please post issues and feature requests at: [Github issues page](https://github.com/ai-z/ai-z/issues) <br>
 Known issues:
