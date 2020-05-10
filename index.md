@@ -22,6 +22,7 @@ Known issues:
 
 
 ### Planned features
+*   Support Intel GPUs
 *   Support MacOS and Windows
 *   Add some AI benchmarks using TF Lite
 *   Add bandwidth and gflops test
