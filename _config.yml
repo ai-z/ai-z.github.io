@@ -1,5 +1,5 @@
 title: AI-Z
-description: GPU usage graph on the command-line
+description: GPU usage graph in the terminal for AMD and NVIDIA GPUs
 show_downloads: false
 google_analytics: UA-136781191-2
 theme: jekyll-theme-hacker
