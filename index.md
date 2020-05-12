@@ -21,7 +21,7 @@ ai-z
 ```
 
 ### Issues
-Please post issues and feature requests at: [Github issues page](https://github.com/ai-z/ai-z/issues) <br>
+Please post issues and feature requests at: [Github issues page](https://github.com/ai-z/ai-z/issues) <br><br>
 Known issues:
 *   AMD GPUs name will be displayed as 'cardX'
 *   PCIE bandwith usage graph on NVDIA cards is not correct
