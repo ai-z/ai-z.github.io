@@ -28,7 +28,7 @@ var gl = canvas.getContext("experimental-webgl");
 //make sure the backend is created
 tf.backend();
 
-tf.setBackend('wasm');
+tf.setBackend('webgpu');
 
 WriteValue('host-gpu', getUnmaskedInfo(gl).renderer)
 WriteValue('host-tfversion', '1.7.2')
