@@ -1,5 +1,5 @@
 async function MatMulTest() {
-    const matSize = 3 * 1024;
+    const matSize = 4 * 1024;
 
     const mat1 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
     const mat2 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
