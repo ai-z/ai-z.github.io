@@ -11,7 +11,8 @@ async function MatMulTest() {
     //const result =  tf.matMul(mat1, mat2).dataSync();
     var t1 = performance.now();
 
-    WriteOutput(`matmulTime ${matmulTime.kernelMs} ms <br>`);
+    WriteOutput(`matmul KernelMs ${matmulTime.kernelMs} ms <br>`);
+    WriteOutput(`matmul WallMs ${matmulTime.wallMs} ms <br>`);
     
     var time = matmulTime.kernelMs / 1000;
     //var time = (t1 - t0) / 1000
