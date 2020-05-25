@@ -5,17 +5,23 @@ permalink: /test
 tags: [tensorflow.js, gflops, performance, test, benchmark]
 ---
 
-The test uses the following code. Please press the "Start Test" button after the Host Info section.
+  <button onclick="StartTest()">Start Test</button>
+  Note: Works only on Chrome Desktop version for now
+<!-- ===================================================  -->
+<!-- Test Results                                          -->
+<!-- ===================================================  -->
+<div id='div-testresults'>
+  <table id='table-hostinfo' border='1'>
+    <tr>
+      <th>Test</th>
+      <th>Result</th>
+    </tr>
+    <tr>
+      <td>MatMul</td>
+      <td id="tr-matmul"></td>
+    </tr>
+  </table>
 
-```javascript
-  const matSize = 2 * 1024;
-  const mat1 = tf.ones([matSize, matSize], tf.float32);
-  const mat2 = tf.ones([matSize, matSize], tf.float32);
-  const matmulTime = await tf.time(() => tf.matMul(mat1, mat2));
-  var time = matmulTime.kernelMs / 1000;
-  totalFlops = 2 * Math.pow(matSize,3);
-  gflops = 1.0e-9 * totalFlops / time;
-```
 
 <!-- ===================================================  -->
 <!-- Host Info                                            -->
@@ -57,23 +63,9 @@ The test uses the following code. Please press the "Start Test" button after the
     </canvas>
   </div>
 
-  <button onclick="StartTest()">Start Test</button>
-  Note: Works only on Chrome Desktop version for now
 
-<!-- ===================================================  -->
-<!-- Test Results                                          -->
-<!-- ===================================================  -->
-<div id='div-testresults'>
-  <table id='table-hostinfo' border='1'>
-    <tr>
-      <th>Test</th>
-      <th>Result</th>
-    </tr>
-    <tr>
-      <td>MatMul</td>
-      <td id="tr-matmul"></td>
-    </tr>
-  </table>
+
+
 
 
   <!-- ===================================================  -->
