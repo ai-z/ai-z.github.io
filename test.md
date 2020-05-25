@@ -72,11 +72,11 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
   <table id='table-leaderboards' border='1' border-width='5px'>
     <tr>
       <td>RX 580</td>
-      <td>500 Gglops/s</td>
+      <td>500 GFlops/s</td>
     </tr>
     <tr>
       <td>GTX 1060</td>
-      <td>400 Gglops/s</td>
+      <td>400 GFlops/s</td>
     </tr>
   </table>
   </div>
