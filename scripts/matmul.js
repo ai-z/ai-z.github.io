@@ -1,8 +1,8 @@
 async function MatMulTest() {
     const matSize = 3 * 1024;
 
-    const mat1 = tf.ones([matSize, matSize], tf.float32);
-    const mat2 = tf.ones([matSize, matSize], tf.float32);
+    const mat1 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
+    const mat2 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
     WriteOutput(`Created two [${matSize},${matSize}] matrices filled with ones <br>`);
 
 
