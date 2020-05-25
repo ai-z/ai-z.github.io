@@ -7,7 +7,7 @@ async function MatMulTest() {
 
     //const matmulTime = await tf.time(() => tf.matMul(mat1, mat2));
     var t0 = performance.now();
-    tf.matMul(mat1, mat2).print()
+    const matmulTime = await tf.time(() => tf.matMul(mat1, mat2));
     var t1 = performance.now();
 
     //WriteOutput(`matmulTime ${matmulTime.kernelMs} ms <br>`);
