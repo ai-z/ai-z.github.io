@@ -53,7 +53,7 @@ The test uses the following code. Please press the "Start Test" button after the
 
   
     <canvas id="glcanvas" width="0" height="0">
-      <script src="tf-tests/host_info.js"></script>
+      <script src="script/host_info.js"></script>
     </canvas>
   </div>
 
