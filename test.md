@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title:  "Test"
 permalink: /test
 tags: [tensorflow.js, gflops, performance, test, benchmark]
