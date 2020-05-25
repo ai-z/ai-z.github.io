@@ -64,14 +64,28 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
   </div>
 
 
-
-
-
-
-  <!-- ===================================================  -->
-<!-- Output                                         -->
 <!-- ===================================================  -->
-<h3> Output</h3>
+<!-- Leaderboards                                                 -->
+<!-- ===================================================  -->
+<h3> Leaderboards</h3>
+<div id='div-leaderboards'>
+  <table id='table-leaderboards' border='1' border-width='5px'>
+    <tr>
+      <td>RX 580</td>
+      <td>500 Gglops/s</td>
+    </tr>
+    <tr>
+      <td>GTX 1060</td>
+      <td>400 Gglops/s</td>
+    </tr>
+  </table>
+  </div>
+
+
+<!-- ===================================================  -->
+<!-- Output                                                 -->
+<!-- ===================================================  -->
+<h3> Debug Output</h3>
 
 
 <texarea type="text" id='test-output'>
