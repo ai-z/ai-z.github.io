@@ -1,5 +1,5 @@
 async function MatMulTest() {
-    const matSize = 2 * 1024;
+    const matSize = 3 * 1024;
 
     const mat1 = tf.ones([matSize, matSize], tf.float32);
     const mat2 = tf.ones([matSize, matSize], tf.float32);
