@@ -5,10 +5,15 @@ async function MatMulTest() {
     const mat2 = tf.ones([matSize, matSize], tf.float32);
     WriteOutput(`Created two [${matSize},${matSize}] matrices filled with ones <br>`);
 
-    const matmulTime = await tf.time(() => tf.matMul(mat1, mat2));
-    WriteOutput(`matmulTime ${matmulTime.kernelMs} ms <br>`);
+    //const matmulTime = await tf.time(() => tf.matMul(mat1, mat2));
+    var t0 = performance.now();
+    const result = tf.matMul(mat1, mat2)
+    var t1 = performance.now();
+
+    //WriteOutput(`matmulTime ${matmulTime.kernelMs} ms <br>`);
     
-    var time = matmulTime.kernelMs / 1000;
+    //var time = matmulTime.kernelMs / 1000;
+    var time = (t1 - t0) / 1000
 
     totalFlops = 2 * Math.pow(matSize,3);
     gflops = 1.0e-9 * totalFlops / time;
