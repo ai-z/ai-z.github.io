@@ -31,9 +31,11 @@ Known issues:
 ### Planned features
 *   Support for Intel GPUs
 *   Support for MacOS and Windows
-*   Add some AI benchmarks using TF Lite
+*   Add some AI benchmarks using Pytorch and TF Lite
 *   Add bandwidth and gflops tests
 *   Control over sampling frequency
+*   Support install throught linux app manager
+*   GUI version
 
 
 <!-- This loops through the paginated posts -->
