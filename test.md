@@ -95,3 +95,4 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
 <script src="scripts/main.js"></script>
 <script src="scripts/matmul.js"></script>
 <script src="scripts/mnist.js"></script>
+  <script src="scripts/demo_workers.js"></script>
