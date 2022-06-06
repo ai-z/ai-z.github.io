@@ -3,11 +3,11 @@
 function MatMulTest() {
     const matSize = 2 * 1024;
 
-    WriteOutput('worker...');
+    //WriteOutput('worker...');
 
     const mat1 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
     const mat2 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
-    WriteOutput(`Created two [${matSize},${matSize}] matrices filled with ones <br>`);
+    WriteOutput(`3 Created two [${matSize},${matSize}] matrices filled with ones <br>`);
 
 
     var t0 = performance.now();
