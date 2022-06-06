@@ -35,4 +35,5 @@ function MatMulTest() {
     mat2.dispose();
 }
 
+console.log("IN WORKER");
 MatMulTest();
