@@ -28,9 +28,11 @@ async function StartTest() {
   //await AsyncTest();
 
   //MatMulTest();
-
+  console.log("test");
   w = new Worker("./scripts/worker.js");
-
+  console.log(w);
+  console.log("test 2");
+  
   
 
   w.onmessage = function(event) {
