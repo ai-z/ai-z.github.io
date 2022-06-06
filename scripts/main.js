@@ -27,7 +27,13 @@ async function StartTest() {
 
   //await AsyncTest();
 
-  MatMulTest();
+  //MatMulTest();
+
+  w = new Worker("worker.js");
+
+  w.onmessage = function(event) {
+    WriteOutput("Worker end");
+  };
 
   /*MatMulTest().then(function() {
     WriteOutput("End of Matmul test");
