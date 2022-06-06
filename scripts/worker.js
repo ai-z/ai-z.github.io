@@ -2,7 +2,7 @@
 
 function MatMulTest() {
 
-    postMessage("hahaha");
+    
 
     importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
 
@@ -25,6 +25,8 @@ function MatMulTest() {
     
     var time = matmulTime.kernelMs / 1000;
     //var time = (t1 - t0) / 1000
+
+    postMessage(matmulTime.kernelMs);
 
     totalFlops = 2 * Math.pow(matSize,3);
     gflops = 1.0e-9 * totalFlops / time;
