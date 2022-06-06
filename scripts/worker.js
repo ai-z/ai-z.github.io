@@ -2,7 +2,7 @@
 
 function MatMulTest() {
 
-    postMessage(1);
+    postMessage(11111111111);
 
     importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs");
 
