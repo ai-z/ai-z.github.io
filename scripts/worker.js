@@ -2,7 +2,7 @@
 
 function MatMulTest() {
 
-    postMessage("WORKER TEST");
+    postMessage(1);
 
     /*importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs");
 
