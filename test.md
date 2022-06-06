@@ -5,7 +5,7 @@ permalink: /test
 tags: [tensorflow.js, gflops, performance, test, benchmark]
 ---
 
-  <button onclick="StartTest()">Start Test</button>
+  <button onclick="StartTest()">Start Test - Worker</button>
 
 <!-- ===================================================  -->
 <!-- Test Results                                          -->
