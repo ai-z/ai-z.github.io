@@ -11,8 +11,8 @@ async function MatMulTest() {
     //const result =  tf.matMul(mat1, mat2).dataSync();
     var t1 = performance.now();
 
-    WriteOutput(`matmul KernelMs ${matmulTime.kernelMs} ms <br>`);
-    WriteOutput(`matmul WallMs ${matmulTime.wallMs} ms <br>`);
+    WriteOutput(`2 matmul KernelMs ${matmulTime.kernelMs} ms <br>`);
+    WriteOutput(`2 matmul WallMs ${matmulTime.wallMs} ms <br>`);
     
     var time = matmulTime.kernelMs / 1000;
     //var time = (t1 - t0) / 1000
@@ -20,7 +20,7 @@ async function MatMulTest() {
     totalFlops = 2 * Math.pow(matSize,3);
     gflops = 1.0e-9 * totalFlops / time;
     WriteOutput(gflops + " GFlops <br>");
-    WriteValue('tr-matmul', `${time.toFixed(3)} s  <br> ${gflops.toFixed(3)} GFlops/s`);
+    WriteValue('2 tr-matmul', `${time.toFixed(3)} s  <br> ${gflops.toFixed(3)} GFlops/s`);
 
     mat1.dispose();
     mat2.dispose();
