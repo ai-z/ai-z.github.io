@@ -32,8 +32,10 @@ async function StartTest() {
   w = new Worker("worker.js");
 
   w.onmessage = function(event) {
-    WriteOutput("Worker end");
+    WriteOutput(event.data);
   };
+
+  w.terminate();
 
   /*MatMulTest().then(function() {
     WriteOutput("End of Matmul test");
