@@ -35,9 +35,10 @@ async function StartTest() {
 
   w.onmessage = function(event) {
     WriteOutput(event.data);
+    console.log("Hello world! 2");
   };
 
-  console.log("Hello world!");
+  
 
   w.terminate();
 
