@@ -1,6 +1,8 @@
-
+//<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.7.2/dist/tf.min.js"></script>
 
 function MatMulTest() {
+    importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs");
+
     const matSize = 2 * 1024;
 
     //WriteOutput('worker...');
