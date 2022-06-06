@@ -29,7 +29,7 @@ async function StartTest() {
 
   //MatMulTest();
 
-  w = new Worker("worker.js");
+  w = new Worker("./scripts/worker.js");
 
   w.onmessage = function(event) {
     WriteOutput(event.data);
