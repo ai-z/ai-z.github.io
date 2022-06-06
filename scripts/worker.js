@@ -4,7 +4,7 @@ function MatMulTest() {
 
     postMessage("hahaha");
 
-    //importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs");
+    importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
 
     const matSize = 4 * 1024;
 
