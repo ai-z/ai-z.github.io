@@ -4,7 +4,7 @@ title:  "Test"
 permalink: /test
 tags: [tensorflow.js, gflops, performance, test, benchmark]
 ---
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+
   <button onclick="StartTest()">Start Test - Worker</button>
 
 <!-- ===================================================  -->
