@@ -4,7 +4,7 @@ function MatMulTest() {
 
     postMessage(1);
 
-    /*importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs");
+    importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs");
 
     const matSize = 4 * 1024;
 
@@ -32,7 +32,7 @@ function MatMulTest() {
     //WriteValue('tr-matmul', `${time.toFixed(3)} s  <br> ${gflops.toFixed(3)} GFlops/s`);
 
     mat1.dispose();
-    mat2.dispose();*/
+    mat2.dispose();
 }
 
 MatMulTest();
