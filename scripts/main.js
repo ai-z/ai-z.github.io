@@ -28,15 +28,16 @@ async function StartTest() {
   //await AsyncTest();
 
   //MatMulTest();
-  console.log("test");
+  //console.log("test");
   w = new Worker("./scripts/worker.js");
-  console.log(w);
-  console.log("test 2");
+  //console.log(w);
+  //console.log("test 2");
   
   
 
   w.onmessage = function(event) {
-    WriteOutput(event.data);
+    //WriteOutput(event.data);
+    console.log(event);
     console.log("Hello world! 2");
   };
 
