@@ -31,9 +31,13 @@ async function StartTest() {
 
   w = new Worker("./scripts/worker.js");
 
+  
+
   w.onmessage = function(event) {
     WriteOutput(event.data);
   };
+
+  console.log("Hello world!");
 
   w.terminate();
 
