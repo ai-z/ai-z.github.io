@@ -2,7 +2,7 @@
 <html>
 <body>
 
-  <script src="scripts/demo_workers.js"></script>
+  <script src="scripts/demo_worker.js"></script>
 
 <p>Count numbers: <output id="result"></output></p>
 <button onclick="startWorker()">Start Worker</button>
@@ -14,7 +14,7 @@ var w;
 function startWorker() {
   if (typeof(Worker) !== "undefined") {
     if (typeof(w) == "undefined") {
-      w = new Worker("./scripts/demo_workers.js");
+      w = new Worker("./scripts/demo_worker.js");
     }
     w.onmessage = function(event) {
       document.getElementById("result").innerHTML = event.data;
