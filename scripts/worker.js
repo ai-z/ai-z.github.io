@@ -16,7 +16,8 @@ function MatMulTest() {
 
 
     var t0 = performance.now();
-    const matmulTime = await tf.time(() => tf.matMul(mat1, mat2));
+    const matmulTime = tf.time(() => tf.matMul(mat1, mat2));
+    matmulTime.dataSync();
     //const result =  tf.matMul(mat1, mat2).dataSync();
     var t1 = performance.now();
 
