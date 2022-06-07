@@ -18,15 +18,21 @@ async function MatMulTest() {
 
 
     var t0 = performance.now();
-    var res = tf.matMul(mat1, mat2);
+    
+    const profile_info = await tf.profile(() => {
+    let res = tf.matMul(mat1, mat2);
     res.dataSync();
+    console.log(profile_info);
+    });
+    
+    //res.dataSync();
     //const result =  tf.matMul(mat1, mat2).dataSync();
     var t1 = performance.now();
 
     //WriteOutput(`matmul KernelMs ${matmulTime.kernelMs} ms <br>`);
     //WriteOutput(`matmul WallMs ${matmulTime.wallMs} ms <br>`);
     
-    var time = (t1-t0) / 1000;
+    var time = (profile.info.kernels[0].kernelTimeMs) / 1000;
     //var time = (t1 - t0) / 1000
 
     
@@ -51,5 +57,5 @@ async function MatMulTest() {
     mat2.dispose();
 }
 
-console.log("IN WORKER");
+
 MatMulTest();
