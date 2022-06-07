@@ -8,6 +8,8 @@ function MatMulTest() {
 
     const matSize = 4 * 1024;
 
+    tf.setBackend('webgl');
+
     //WriteOutput('worker...');
 
     const mat1 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
