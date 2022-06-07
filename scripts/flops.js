@@ -4,7 +4,7 @@ async function FlopsTest() {
 
     const matSize = 1024;
 
-    await tf.setBackend('webgl');
+    await tf.setBackend('wasm');
 
     var bestTime = Infinity;
 
@@ -21,8 +21,6 @@ async function FlopsTest() {
         });
     
         //var t1 = performance.now();
-
-        console.log(profile_info);
 
         let totalKernelMs = 0;
         for (let j = 0; j < profile_info.kernels.length; j++) {
