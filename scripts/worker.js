@@ -6,7 +6,7 @@ function MatMulTest() {
 
     importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
 
-    const matSize = 4 * 1024;
+    const matSize = 2 * 1024;
 
     tf.setBackend('webgl');
 
@@ -37,6 +37,15 @@ function MatMulTest() {
     //WriteValue('tr-matmul', `${time.toFixed(3)} s  <br> ${gflops.toFixed(3)} GFlops/s`);
 
     postMessage(gflops);
+
+    const profile = await tf.profile(() => {
+        const x = tf.tensor1d([1, 2, 3]);
+        let x2 = x.square();
+        x2.dispose();
+        x2 = x.square();
+        x2.dispose();
+        return x;
+     });
 
     mat1.dispose();
     mat2.dispose();
