@@ -1,6 +1,6 @@
 //<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.7.2/dist/tf.min.js"></script>
 
-function MatMulTest() {
+async function MatMulTest() {
 
     
 
