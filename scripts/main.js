@@ -42,7 +42,7 @@ async function StartTest() {
 
   //MatMulTest();
   console.log("test");
-  w = new Worker("./scripts/worker.js");
+  w = new Worker("./scripts/flops.js");
   //console.log(w);
   //console.log("test 2");
   
