@@ -22,12 +22,14 @@ async function MatMulTest() {
     const profile_info = await tf.profile(() => {
     let res = tf.matMul(mat1, mat2);
     res.dataSync();
-    console.log(profile_info);
+    
     });
     
     //res.dataSync();
     //const result =  tf.matMul(mat1, mat2).dataSync();
     var t1 = performance.now();
+
+    console.log(profile_info);
 
     //WriteOutput(`matmul KernelMs ${matmulTime.kernelMs} ms <br>`);
     //WriteOutput(`matmul WallMs ${matmulTime.wallMs} ms <br>`);
