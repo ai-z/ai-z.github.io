@@ -6,7 +6,8 @@ async function MatMulTest() {
 
     importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
 
-    const matSize = 512;
+
+    const matSize = 1024;
 
     await tf.setBackend('webgl');
 
