@@ -47,15 +47,6 @@ async function MatMulTest() {
 
     postMessage(gflops);
 
-    const profile = await tf.profile(() => {
-        const x = tf.tensor1d([1, 2, 3]);
-        let x2 = x.square();
-        x2.dispose();
-        x2 = x.square();
-        x2.dispose();
-        return x;
-     });
-
     mat1.dispose();
     mat2.dispose();
 }
