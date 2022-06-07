@@ -29,12 +29,14 @@ function MatMulTest() {
     var time = (t1-t0) / 1000;
     //var time = (t1 - t0) / 1000
 
-    postMessage(t1-t0);
+    
 
     totalFlops = 2 * Math.pow(matSize,3);
     gflops = 1.0e-9 * totalFlops / time;
     //WriteOutput(gflops + " GFlops <br>");
     //WriteValue('tr-matmul', `${time.toFixed(3)} s  <br> ${gflops.toFixed(3)} GFlops/s`);
+
+    postMessage(gflops);
 
     mat1.dispose();
     mat2.dispose();
