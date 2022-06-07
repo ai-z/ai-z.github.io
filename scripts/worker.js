@@ -8,12 +8,12 @@ async function MatMulTest() {
 
     const matSize = 2 * 1024;
 
-    tf.setBackend('webgl');
+    await tf.setBackend('webgl');
 
     //WriteOutput('worker...');
     var bestTime = Infinity;
 
-    for(int j=0; j < 20; j++) {
+    for(let i=0; i < 20; i++) {
         const mat1 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
         const mat2 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
         //WriteOutput(`3 Created two [${matSize},${matSize}] matrices filled with ones <br>`);
