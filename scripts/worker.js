@@ -53,7 +53,7 @@ async function MatMulTest() {
     }
 
     totalFlops = 2 * Math.pow(matSize,3);
-    gflops = 1.0e-9 * totalFlops / besttime;
+    gflops = 1.0e-9 * totalFlops / bestTime;
     //WriteOutput(gflops + " GFlops <br>");
     //WriteValue('tr-matmul', `${time.toFixed(3)} s  <br> ${gflops.toFixed(3)} GFlops/s`);
 
