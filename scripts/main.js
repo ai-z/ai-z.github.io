@@ -20,6 +20,19 @@ async function AsyncTest() {
   WriteOutput("AsyncTest() - END =====================<br>");
 }
 
+function startWorker() {
+  if (typeof(Worker) !== "undefined") {
+    if (typeof(w) == "undefined") {
+      w = new Worker("./scripts/worker.js");
+    }
+    w.onmessage = function(event) {
+      document.getElementById("result").innerHTML = event.data;
+    };
+  } else {
+    document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+  }
+}
+
 async function StartTest() {
 
   //WriteOutput("StartTest - BEGIN =====================");
@@ -28,7 +41,7 @@ async function StartTest() {
   //await AsyncTest();
 
   //MatMulTest();
-  //console.log("test");
+  console.log("test");
   w = new Worker("./scripts/worker.js");
   //console.log(w);
   //console.log("test 2");
@@ -43,7 +56,7 @@ async function StartTest() {
 
   
 
-  w.terminate();
+  //w.terminate();
 
   /*MatMulTest().then(function() {
     WriteOutput("End of Matmul test");
