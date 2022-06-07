@@ -34,7 +34,8 @@ async function MatMulTest() {
     //WriteOutput(`matmul KernelMs ${matmulTime.kernelMs} ms <br>`);
     //WriteOutput(`matmul WallMs ${matmulTime.wallMs} ms <br>`);
     
-    var time = (profile_info.kernels[0].kernelTimeMs) / 1000;
+    var totalKernelMs = profile_info.kernels[0].kernelTimeMs + profile_info.kernels[1].kernelTimeMs;
+    var time = (totalKernelMs) / 1000;
     //var time = (t1 - t0) / 1000
 
     
