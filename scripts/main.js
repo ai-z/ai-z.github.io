@@ -49,6 +49,8 @@ async function StartTest() {
   
 
   w.onmessage = function(event) {
+    let gflops = event.data;
+    WriteValue('tr-flops', `${gflops.toFixed(3)} GFlops/s`);
     WriteOutput(event.data);
     WriteOutput(JSON.stringify(tf.env().getFlags(), null, 10));
     WriteOutput(JSON.stringify(tf.version, null, 2));

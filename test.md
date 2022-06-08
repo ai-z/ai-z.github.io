@@ -5,7 +5,6 @@ permalink: /test
 tags: [tensorflow.js, gflops, performance, test, benchmark]
 ---
 
-  <button onclick="StartTest()">Start Test - Worker</button>
 
 <!-- ===================================================  -->
 <!-- Test Results                                          -->
@@ -14,21 +13,21 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
   <table id='table-hostinfo' border='1'>
     <tr>
       <th>Test</th>
-      <th>Result</th>
+      <th>Results</th>
     </tr>
     <tr>
-      <td>MatMul</td>
-      <td id="tr-matmul"></td>
+      <td><button onclick="StartTest()">FLOPs</button></td>
+      <td id="tr-flops"></td>
     </tr>
   </table>
 
 
 <!-- ===================================================  -->
-<!-- Host Info                                            -->
+<!-- Parameters                                           -->
 <!-- ===================================================  -->
-<h3> Host Info</h3>
+<h3> Parameters </h3>
 <div id='div-hostinfo'>
-  <table id='table-hostinfo' border='1' border-width='5px'>
+  <table id='table-hostinfo' border='1' border-width='2px'>
     <tr>
       <td>GPU</td>
       <td id="host-gpu"></td>
@@ -64,22 +63,7 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
   </div>
 
 
-<!-- ===================================================  -->
-<!-- Leaderboards                                                 -->
-<!-- ===================================================  -->
-<h3> Leaderboards</h3>
-<div id='div-leaderboards'>
-  <table id='table-leaderboards' border='1' border-width='5px'>
-    <tr>
-      <td>RX 580</td>
-      <td>500 GFlops/s</td>
-    </tr>
-    <tr>
-      <td>GTX 1060</td>
-      <td>400 GFlops/s</td>
-    </tr>
-  </table>
-  </div>
+
 
 
 <!-- ===================================================  -->
