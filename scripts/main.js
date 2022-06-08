@@ -50,7 +50,7 @@ async function StartTest() {
 
   w.onmessage = function(event) {
     WriteOutput(event.data);
-    WriteOutput(tf.env().getFlags());
+    WriteOutput(tf.env().features);
     WriteOutput(tf.version);
 
     console.log(tf.env().features);
