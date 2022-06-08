@@ -17,16 +17,14 @@ function getBrowser(){
       browserName="No browser detection";
     }
   
-   return browserName;
+   return navigator.userAgent;
 }
 
 function getOS() {
-
   let os_names = ["Windows NT 11.0", "Windows NT 10.0", "Linux", "Mac"];
-
   let str = window.navigator.userAgent;
 
-  for (n in os_names) {
+  for (const n of os_names) {
     if(str.indexOf(n) != 1)
       return n;
   }
@@ -36,22 +34,14 @@ function getOS() {
 
 
 function getGPU() {
-  var canvas;
-  canvas = document.getElementById("glcanvas");
-  var gl = canvas.getContext("experimental-webgl");
+  let canvas = document.getElementById("glcanvas");
+  let gl = canvas.getContext("experimental-webgl");
 
-  var unMaskedInfo = {
-    renderer: '',
-    vendor: ''
-  };
+  let info = gl.getExtension("WEBGL_debug_renderer_info");
+  if (info != null)
+    return gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL); //dbgRenderInfo.UNMASKED_VENDOR_WEBGL
 
-  var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
-  if (dbgRenderInfo != null) {
-    unMaskedInfo.renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
-    unMaskedInfo.vendor = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
-  }
-
-  return unMaskedInfo.renderer;
+  return "unknown";
 }
 
 function WriteValue(id, value) {
