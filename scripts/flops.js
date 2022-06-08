@@ -1,12 +1,20 @@
 async function FlopsTest() {
 
     importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
-    importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js");
+    //importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js");
 
     const matSize = 1024;
     const numIterations = 24;
 
-    await tf.setBackend('wasm');
+    try {
+        await tf.setBackend('wasm');
+
+    }
+    catch(error) {
+        postMessage("ERROR SETTING BACKEND");
+        return;
+    }
+    
 
     let bestTime = Infinity;
 
