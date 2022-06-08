@@ -1,23 +1,13 @@
-function getBrowser(){
-                 
-  let userAgent = navigator.userAgent;
-  let browserName;
+function getBrowser(){                 
+  let str = navigator.userAgent;
   
-  if(userAgent.match(/chrome|chromium|crios/i)){
-      browserName = "chrome";
-    }else if(userAgent.match(/firefox|fxios/i)){
-      browserName = "firefox";
-    }  else if(userAgent.match(/safari/i)){
-      browserName = "safari";
-    }else if(userAgent.match(/opr\//i)){
-      browserName = "opera";
-    } else if(userAgent.match(/edg/i)){
-      browserName = "edge";
-    }else{
-      browserName="No browser detection";
-    }
+  if(str.match(/chrome|chromium|crios/i)) return "Chrome";
+  if(str.match(/firefox|fxios/i)) return "firefox";
+  if(str.match(/safari/i)) return "safari";
+  if(str.match(/opr\//i)) return "opera";
+  if(str.match(/edg/i)) return "edge";
   
-   return navigator.userAgent;
+  return "Unhknown";
 }
 
 function getOS() {
@@ -49,6 +39,16 @@ function WriteValue(id, value) {
   node.innerHTML = value;
 }
 
+function CreateDropDown(id, options)
+{
+  let str = "<select>"
+  
+  for(let i=0 ; i < options.length; i++)
+    str += name => `<option value="${options[i]}">${options[i]}</option>`
+  
+  str += "</select>";
+}
+
 //==========================================================
 
 
@@ -64,7 +64,7 @@ WriteValue('host-gpu', getGPU())
 WriteValue('host-os', getOS())
 WriteValue('host-browser', getBrowser())
 WriteValue('host-tfversion', tf.version["tfjs"])
-WriteValue('host-tfbackend', tf.getBackend())
+WriteValue('host-tfbackend', CreateDropDown(test, ["webgl", "cpu"]))
 WriteValue('host-webglversion', tf.env().get('WEBGL_VERSION'))
 WriteValue('host-forcef16', tf.env().get('WEBGL_FORCE_F16_TEXTURES'))
 WriteValue('host-debug', tf.env().get('DEBUG'))
