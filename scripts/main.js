@@ -50,11 +50,11 @@ async function StartTest() {
 
   w.onmessage = function(event) {
     WriteOutput(event.data);
-    WriteOutput(tf.env().features.toString());
-    WriteOutput(tf.version.toString());
+    WriteOutput(JSON.stringify(tf.env().features));
+    WriteOutput(JSON.stringify(tf.version));
 
-    console.log(tf.env().features.toString());
-    console.log(tf.version.toString());
+    console.log(tf.env().features);
+    console.log(tf.version);
   };
 
   w.onerror = function(event) {
