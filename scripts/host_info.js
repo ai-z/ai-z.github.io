@@ -39,7 +39,7 @@ function getGPU() {
 
   let info = gl.getExtension("WEBGL_debug_renderer_info");
   if (info != null)
-    return gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL); //dbgRenderInfo.UNMASKED_VENDOR_WEBGL
+    return gl.getParameter(info.UNMASKED_RENDERER_WEBGL); //dbgRenderInfo.UNMASKED_VENDOR_WEBGL
 
   return "unknown";
 }
