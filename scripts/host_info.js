@@ -52,7 +52,10 @@ tf.backend();
 tf.setBackend('webgpu');
 
 //WriteValue('host-gpu', getUnmaskedInfo(gl).renderer)
-WriteValue('host-gpu', fnBrowserDetect())
+
+test = "<select name='cars' id='cars'> <option value='volvo'>Volvo</option> <option value='saab'>Saab</option> </select>"
+
+WriteValue('host-gpu', test)
 WriteValue('host-tfversion', tf.version["tfjs"])
 WriteValue('host-tfbackend', tf.getBackend())
 WriteValue('host-webglversion', tf.env().get('WEBGL_VERSION'))
