@@ -30,8 +30,8 @@ tf.backend();
 
 tf.setBackend('webgpu');
 
-WriteValue('host-gpu', getUnmaskedInfo(gl).renderer)
-WriteValue('host-tfversion', '3.0.0')
+WriteValue('host-gpu', getUnmaskedInfo(gl).vendor)
+WriteValue('host-tfversion', tf.version["tfjs"])
 WriteValue('host-tfbackend', tf.getBackend())
 WriteValue('host-webglversion', tf.env().get('WEBGL_VERSION'))
 WriteValue('host-forcef16', tf.env().get('WEBGL_FORCE_F16_TEXTURES'))
