@@ -31,7 +31,7 @@ function getGPU() {
   if (info != null)
     return gl.getParameter(info.UNMASKED_RENDERER_WEBGL); //dbgRenderInfo.UNMASKED_VENDOR_WEBGL
 
-  return "unknown";
+  return "Unknown";
 }
 
 function WriteValue(id, value) {
@@ -44,7 +44,7 @@ function CreateDropDown(id, options)
   let str = "<select>"
   
   for(let i=0 ; i < options.length; i++)
-    str += name => `<option value="${options[i]}">${options[i]}</option>`
+    str += `<option value="${options[i]}">${options[i]}</option>`;
   
   str += "</select>";
 }
