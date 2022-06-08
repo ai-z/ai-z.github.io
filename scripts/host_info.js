@@ -1,4 +1,4 @@
-function fnBrowserDetect(){
+function getBrowser(){
                  
   let userAgent = navigator.userAgent;
   let browserName;
@@ -20,8 +20,26 @@ function fnBrowserDetect(){
    return browserName;
 }
 
+function getOS() {
 
-function getUnmaskedInfo(gl) {
+  let os_names = ["Windows NT 11.0", "Windows NT 10.0", "Linux", "Mac"];
+
+  let str = window.navigator.userAgent;
+
+  for (n in os_names) {
+    if(str.indexOf(n) != 1)
+      return n;
+  }
+
+  return "Unknown";
+}
+
+
+function getGPU() {
+  var canvas;
+  canvas = document.getElementById("glcanvas");
+  var gl = canvas.getContext("experimental-webgl");
+
   var unMaskedInfo = {
     renderer: '',
     vendor: ''
@@ -33,7 +51,7 @@ function getUnmaskedInfo(gl) {
     unMaskedInfo.vendor = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
   }
 
-  return unMaskedInfo;
+  return unMaskedInfo.renderer;
 }
 
 function WriteValue(id, value) {
@@ -42,22 +60,19 @@ function WriteValue(id, value) {
 }
 
 //==========================================================
-var canvas;
-canvas = document.getElementById("glcanvas");
-var gl = canvas.getContext("experimental-webgl");
+
 
 //make sure the backend is created
 tf.backend();
 
 tf.setBackend('webgpu');
 
-//
 
 test = "<select name='cars' id='cars'> <option value='volvo'>Volvo</option> <option value='saab'>Saab</option> </select>"
 
-WriteValue('host-gpu', getUnmaskedInfo(gl).renderer)
-WriteValue('host-os', window.navigator.userAgent)
-WriteValue('host-browser', fnBrowserDetect())
+WriteValue('host-gpu', getGPU())
+WriteValue('host-os', getOS())
+WriteValue('host-browser', getBrowser())
 WriteValue('host-tfversion', tf.version["tfjs"])
 WriteValue('host-tfbackend', tf.getBackend())
 WriteValue('host-webglversion', tf.env().get('WEBGL_VERSION'))
