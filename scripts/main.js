@@ -1,7 +1,3 @@
-// Notice there is no 'import' statement. 'tf' is available on the index-page
-// because of the script tag above.
-
-
 
 
 function WriteOutput(value) {
@@ -9,111 +5,42 @@ function WriteOutput(value) {
   node.innerHTML += value;
 }
 
-
-
-async function AsyncTest() {
-  WriteOutput("AsyncTest() - BEGIN =====================<br>");
-  var i=0;
-  while(i < 9000000000){
-    i++;
-  }
-  WriteOutput("AsyncTest() - END =====================<br>");
-}
-
-function startWorker() {
-  if (typeof(Worker) !== "undefined") {
-    if (typeof(w) == "undefined") {
-      w = new Worker("./scripts/worker.js");
-    }
-    w.onmessage = function(event) {
-      document.getElementById("result").innerHTML = event.data;
-    };
-  } else {
-    document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
-  }
-}
-
 async function StartTest() {
 
-  //WriteOutput("StartTest - BEGIN =====================");
+  if (typeof(Worker) !== "undefined") {
+    if (typeof(w) == "undefined") {
+      w = new Worker("./scripts/flops.js");
+    }
 
-
-  //await AsyncTest();
-
-  //MatMulTest();
-  console.log("test");
-  w = new Worker("./scripts/flops.js");
-  //console.log(w);
-  //console.log("test 2");
+    w.onmessage = function(event) {
+      let gflops = event.data;
+      WriteValue('tr-flops', `${gflops.toFixed(3)} GFlops/s`);
+      WriteOutput(event.data);
+      WriteOutput(JSON.stringify(tf.env().getFlags(), null, 10));
+      WriteOutput(JSON.stringify(tf.version, null, 2));
   
+      console.log(tf.env().getFlags());
+      console.log(tf.version);
+      w.terminate();
+    };
   
-
-  w.onmessage = function(event) {
-    let gflops = event.data;
-    WriteValue('tr-flops', `${gflops.toFixed(3)} GFlops/s`);
-    WriteOutput(event.data);
-    WriteOutput(JSON.stringify(tf.env().getFlags(), null, 10));
-    WriteOutput(JSON.stringify(tf.version, null, 2));
-
-    console.log(tf.env().getFlags());
-    console.log(tf.version);
-  };
-
-  w.onerror = function(event) {
-    //WriteOutput(event.data);
-    console.log(event);
-    
-  };
-
-  //w.terminate();
-
-  /*MatMulTest().then(function() {
-    WriteOutput("End of Matmul test");
-
-  }).then(function() {
-    WriteOutput("Other Test");
-
-  }).catch(function(err) {
-    console.log('Test Error: ' + err.message);
-  });*/
-
-  
-  //WriteOutput("StartTest - END =====================");
-}
-
-async function StartTest2() {
-
-  WriteOutput("StartTest2 - BEGIN =====================<br>");
-
-
-  //await AsyncTest();
-
-  //MatMulTest();
-
-  /*MatMulTest().then(function() {
-    WriteOutput("End of Matmul test");
-
-  }).then(function() {
-    WriteOutput("Other Test");
-
-  }).catch(function(err) {
-    console.log('Test Error: ' + err.message);
-  });*/
-
-  
-  WriteOutput("StartTest2 - END =====================<br>");
+    w.onerror = function(event) {
+      //WriteOutput(event.data);
+      console.log(event);
+      w.terminate();
+    };
+  }
 }
 
 async function run() {
-  //document.write("RUN TEST")
-
-  //await MatMulTest();
-
-  //await AsyncTest();
-  
+  if (typeof(Worker) == "undefined") {
+    console.log("Your browser doesn't support Web workers - Tests won't work");
+  }
 }
 
 document.addEventListener('DOMContentLoaded', run);
+
+
 
 
 
