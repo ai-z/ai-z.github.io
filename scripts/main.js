@@ -53,8 +53,8 @@ async function StartTest() {
     WriteOutput(tf.env().getFlags());
     WriteOutput(tf.version);
 
-    console.log(event);
-    console.log("Hello world! 2");
+    console.log(tf.env().getFlags());
+    console.log(tf.version);
   };
 
   w.onerror = function(event) {
