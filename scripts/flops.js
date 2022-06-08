@@ -1,14 +1,16 @@
 async function FlopsTest() {
 
     importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
+    importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js");
 
     const matSize = 1024;
+    const numIterations = 24;
 
     await tf.setBackend('wasm');
 
-    var bestTime = Infinity;
+    let bestTime = Infinity;
 
-    for(let i=0; i < 20; i++) {
+    for(let i=0; i < numIterations; i++) {
         const mat1 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
         const mat2 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
 
