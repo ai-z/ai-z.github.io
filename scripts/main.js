@@ -53,7 +53,7 @@ async function StartTest() {
     WriteOutput(tf.env().getFlags());
     WriteOutput(tf.version);
 
-    console.log(tf.env().getFlags());
+    console.log(tf.env().features);
     console.log(tf.version);
   };
 
