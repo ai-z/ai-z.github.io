@@ -7,12 +7,12 @@ async function FlopsTest() {
     const numIterations = 24;
 
     try {
-        await tf.setBackend('wasm');
+        await tf.setBackend('webgl');
 
     }
     catch(error) {
-        postMessage("ERROR SETTING BACKEND");
-        return;
+        //postMessage("ERROR SETTING BACKEND");
+        await tf.setBackend('cpu');
     }
     
 
