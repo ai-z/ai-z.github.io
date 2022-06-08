@@ -47,6 +47,8 @@ function CreateDropDown(id, options)
     str += `<option value="${options[i]}">${options[i]}</option>`;
   
   str += "</select>";
+
+  return str;
 }
 
 //==========================================================
