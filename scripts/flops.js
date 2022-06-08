@@ -8,10 +8,8 @@ async function FlopsTest() {
 
     try {
         await tf.setBackend('webgl');
-
     }
     catch(error) {
-        //postMessage("ERROR SETTING BACKEND");
         await tf.setBackend('cpu');
     }
     
@@ -37,7 +35,7 @@ async function FlopsTest() {
             totalKernelMs += profile_info.kernels[j].kernelTimeMs;
         }
         
-        var time = (totalKernelMs) / 1000;
+        let time = (totalKernelMs) / 1000;
 
         if (time < bestTime)
             bestTime = time;

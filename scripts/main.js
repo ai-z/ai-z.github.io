@@ -49,12 +49,19 @@ async function StartTest() {
   
 
   w.onmessage = function(event) {
-    //WriteOutput(event.data);
+    WriteOutput(event.data);
+    WriteOutput(tf.env().getFlags());
+    WriteOutput(tf.version);
+
     console.log(event);
     console.log("Hello world! 2");
   };
 
-  
+  w.onerror = function(event) {
+    //WriteOutput(event.data);
+    console.log(event);
+    
+  };
 
   //w.terminate();
 
