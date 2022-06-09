@@ -17,7 +17,7 @@ async function FlopsTest() {
   
 
     try {
-        await tf.setBackend('webgl');
+        await tf.setBackend(backend);
     }
     catch(error) {
         await tf.setBackend('cpu');
