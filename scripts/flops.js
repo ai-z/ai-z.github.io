@@ -16,6 +16,8 @@ async function FlopsTest() {
     let force16 = parameters['force16'];
 
     console.log(backend);
+    console.log(webglVersion);
+    console.log(force16);
   
 
     //try {
