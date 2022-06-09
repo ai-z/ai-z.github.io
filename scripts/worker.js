@@ -50,7 +50,7 @@ async function FlopsTest(parameters) {
 async function MobileNetTest(parameters) {
     let totalMs = 666;
 
-    const modelUrl = https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/classification/2';
+    const modelUrl = "https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/classification/2";
     const model = await tf.loadGraphModel(modelUrl, {fromTFHub: true});
     const zeros = tf.zeros([1, 224, 224, 3]);
     //const timeInfo =
