@@ -18,14 +18,14 @@ async function FlopsTest() {
     console.log(backend);
   
 
-    try {
+    //try {
         await tf.setBackend(backend);
         tf.env().setFlag('WEBGL_VERSION', webglVersion);
         tf.env().setFlag('WEBGL_FORCE_F16_TEXTURES', force16);
-    }
-    catch(error) {
-        throw new Error('Error applying parameters'); 
-    }
+    //}
+    //catch(error) {
+    //    throw new Error('Error applying parameters'); 
+    //}
     
 
     let bestTime = Infinity;
