@@ -1,3 +1,5 @@
+var debug_tab = "     ";
+
 async function FlopsTest() {
 
     importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
@@ -35,8 +37,10 @@ async function FlopsTest() {
         let totalKernelMs = 0;
         for (let j = 0; j < profile_info.kernels.length; j++) {
             totalKernelMs += profile_info.kernels[j].kernelTimeMs;
-            debugOutput += profile_info.kernels[j].name + ": " + totalKernelMs.toString() + "ms";
+            debugOutput += debug_tab + profile_info.kernels[j].name + ": " + totalKernelMs.toString() + "ms";
         }
+
+        debugOutput += debug_tab + "Total: " + totalKernelMs + "ms";
         
         let time = (totalKernelMs) / 1000;
 
@@ -49,6 +53,8 @@ async function FlopsTest() {
 
     totalFlops = 2 * Math.pow(matSize,3);
     gflops = 1.0e-9 * totalFlops / bestTime;
+
+    debugOutput += debug_tab + "Result: " + gflops + "gflop/s";
 
     postMessage([gflops, debugOutput]);
 }
