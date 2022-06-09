@@ -1,5 +1,3 @@
-
-
 function WriteOutput(value) {
   var node = document.getElementById('test-output');
   node.innerHTML += value;
@@ -36,11 +34,11 @@ async function StartTest() {
 function getBrowser(){                 
   let str = navigator.userAgent;
   
+  if(str.match(/edg/i)) return "Edge";
   if(str.match(/chrome|chromium|crios/i)) return "Chrome";
-  if(str.match(/firefox|fxios/i)) return "firefox";
-  if(str.match(/safari/i)) return "safari";
-  if(str.match(/opr\//i)) return "opera";
-  if(str.match(/edg/i)) return "edge";
+  if(str.match(/firefox|fxios/i)) return "Firefox";
+  if(str.match(/safari/i)) return "Safari";
+  if(str.match(/opr\//i)) return "Opera";
   
   return "Unhknown";
 }
@@ -50,7 +48,7 @@ function getOS() {
   let str = window.navigator.userAgent;
 
   for (const n of os_names) {
-    if(str.indexOf(n) != 1)
+    if(str.indexOf(n) != -1)
       return n;
   }
 
