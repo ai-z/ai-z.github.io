@@ -1,25 +1,8 @@
 var debug_tab = "     ";
 
-async function FlopsTest() {
-
-    importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
-    importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js");
-
+async function FlopsTest(parameters) {
     const matSize = 1024;
     const numIterations = 24;
-
-    var parameters = {}
-    location.search.slice(1).split("&").forEach( function(key_value) { var kv = key_value.split("="); parameters[kv[0]] = kv[1]; })
-
-    let backend = parameters['backend'];
-    let force16 = Boolean(parameters['force16']);
-
-    console.log(backend);
- 
-
-    await tf.setBackend(backend);
-    tf.env().set('WEBGL_FORCE_F16_TEXTURES', force16);
-  
     
     let bestTime = Infinity;
     let debugOutput = "";
@@ -64,4 +47,30 @@ async function FlopsTest() {
     postMessage([gflops, debugOutput]);
 }
 
-FlopsTest();
+async function MobileNetTest(parameters) {
+    postMessage([777, "MobileNetTest"]);
+}
+
+// Init flags
+importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
+importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js");
+
+var parameters = {}
+location.search.slice(1).split("&").forEach( function(key_value) { var kv = key_value.split("="); parameters[kv[0]] = kv[1]; })
+
+let backend = parameters['backend'];
+let force16 = Boolean(parameters['force16']);
+let test_id = parameters['test_id'];
+
+console.log(test_id);
+ 
+await tf.setBackend(backend);
+tf.env().set('WEBGL_FORCE_F16_TEXTURES', force16);
+
+// Launch test
+if (test_id == "FLOPS")
+    FlopsTest(parameters);
+else if (test_id == "MOBILENET")
+    MobileNetTest(parameters);
+else
+    throw new Error("Invalid test id");
