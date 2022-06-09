@@ -129,11 +129,8 @@ async function Init()
     WriteValue('WASM_HAS_MULTITHREAD_SUPPORT', await tf.env().getAsync('WASM_HAS_MULTITHREAD_SUPPORT'));
     WriteValue('WASM_HAS_SIMD_SUPPORT', await tf.env().getAsync('WASM_HAS_SIMD_SUPPORT'));
   }
-    
-  
+     
   let backend = tf.getBackend();
-  console.log("chosen backend!");
-  console.log(backend);
   
   WriteValue('host-tfbackend', CreateDropDown("opt-backend", backendOptions, backend));
 }

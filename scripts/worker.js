@@ -97,8 +97,6 @@ async function InitTest()
     let backend = parameters['backend'];
     let force16 = Boolean(parameters['force16']);
     let test_id = parameters['test_id'];
-
-    console.log(test_id);
     
     //Apply ENV flags
     await tf.setBackend(backend);
