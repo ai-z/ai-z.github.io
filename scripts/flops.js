@@ -31,7 +31,7 @@ async function FlopsTest() {
     
         //var t1 = performance.now();
 
-        debugOutput = "FLOPs kernel(s) time:\n";
+        debugOutput = "FLOPs kernel time(s):\n";
         let totalKernelMs = 0;
         for (let j = 0; j < profile_info.kernels.length; j++) {
             totalKernelMs += profile_info.kernels[j].kernelTimeMs;
