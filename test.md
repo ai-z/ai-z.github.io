@@ -41,9 +41,7 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
   </div>
 
 <!-- Canvas is needed to get GPU info -->
-<canvas id="glcanvas" width="0" height="0">
-<script src="scripts/host_info.js"></script>
-</canvas>
+<canvas id="glcanvas" width="0" height="0"> </canvas>
 
 
 <!-- ===================================================  -->
@@ -51,12 +49,6 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
 <!-- ===================================================  -->
 <h3> Debug Output</h3>
 
-
 <texarea type="text" id='test-output'>
 
-
-
 <script src="scripts/main.js"></script>
-<script src="scripts/matmul.js"></script>
-<script src="scripts/mnist.js"></script>
-<script src="scripts/demo_worker.js"></script>
