@@ -82,7 +82,7 @@ async function MobileNetTest(parameters) {
             bestTime = totalKernelMs;
     }
 
-    postMessage([`${totalKernelMs.toFixed(3)} ms`, debugOutput]);
+    postMessage([`${bestTime.toFixed(3)} ms`, debugOutput]);
 }
 
 async function InitTest()
