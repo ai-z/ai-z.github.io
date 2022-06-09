@@ -10,7 +10,7 @@ function WriteValue(id, value) {
 
 async function StartTest() {
 
-  if (typeof(Worker) !== "undefined")
+  if (typeof(Worker) == "undefined")
     return;
 
   if (typeof(w) == "undefined") {
