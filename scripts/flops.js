@@ -12,15 +12,19 @@ async function FlopsTest() {
     location.search.slice(1).split("&").forEach( function(key_value) { var kv = key_value.split("="); parameters[kv[0]] = kv[1]; })
 
     let backend = parameters['backend'];
+    let webglVersion = parameters['webglVersion'];
+    let force16 = parameters['force16'];
 
     console.log(backend);
   
 
     try {
         await tf.setBackend(backend);
+        tf.env().setFlag('WEBGL_VERSION', webglVersion);
+        tf.env().setFlag('WEBGL_FORCE_F16_TEXTURES', force16);
     }
     catch(error) {
-        await tf.setBackend('cpu');
+        throw new Error('Error applying parameters'); 
     }
     
 

@@ -8,16 +8,22 @@ function WriteValue(id, value) {
   node.innerHTML = value;
 }
 
+function GetSelectedOption(id) {
+  let e = document.getElementById(id);
+  return e.options[e.selectedIndex].text;
+}
+
 async function StartTest() {
 
   if (typeof(Worker) == "undefined")
     return;
 
   if (typeof(w) == "undefined") {
-    let e = document.getElementById("opt-backend");
-    let backend = e.options[e.selectedIndex].text;
+    let backend = GetSelectedOption("opt-backend");
+    let webglVersion = GetSelectedOption("opt-webglversion");
+    let force16 = GetSelectedOption("opt-forcef16");
 
-    w = new Worker(`./scripts/flops.js?backend=${backend}`);
+    w = new Worker(`./scripts/flops.js?backend=${backend}&webglVersion=${webglVersion}&force16=${force16}`);
 
     w.onmessage = function(event) {
       let result = event.data;
@@ -80,14 +86,9 @@ function CreateDropDown(id, options, selected)
 
   for(let i=0 ; i < options.length; i++) {
     selected_str = "";
-    console.log(options[i]);
-    console.log(selected);
     if(options[i] == selected) {
       selected_str = "selected";
-      console.log("SELECTED!");
     }
-      
-
     str += `<option value="${options[i]}" ${selected_str}>${options[i]}</option>`;
   }
   
