@@ -24,7 +24,7 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
     <tr>
       <td><button onclick="StartTest('MOBILENET')">MOBILENET</button></td>
       <td id="MOBILENET V2 INFERENCE"></td>
-      <td><a href="https://github.com/ai-z/ai-z.github.io/blob/dafdb1fb1b007743510dceaa8a84762ad5bdc522/scripts/worker.js#L42">GitHub</a></td>
+      <td><a href="https://github.com/ai-z/ai-z.github.io/blob/dafdb1fb1b007743510dceaa8a84762ad5bdc522/scripts/worker.js#L50">GitHub</a></td>
     </tr>
   </table>
 
