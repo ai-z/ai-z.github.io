@@ -33,11 +33,11 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
     <tr> <td>BROWSER</td> <td id="host-browser"></td> </tr>
     <tr> <td>TFJS VERSION</td> <td id='host-tfversion'></td></tr>
     <tr> <td>BACKEND</td> <td id='host-tfbackend'></td> </tr>
-    <tr> <td>WEBGL_VERSION</td> <td id='host-webglversion'></td> </tr>
-    <tr> <td>WEBGL_FORCE_F16_TEXTURES</td> <td id='host-forcef16'></td> </tr>
-    <tr> <td>WEBGL_MAX_TEXTURE_SIZE</td> <td id='WEBGL_MAX_TEXTURE_SIZE'></td> </tr>
-    <tr> <td>WASM_HAS_MULTITHREAD_SUPPORT</td> <td id='WASM_HAS_MULTITHREAD_SUPPORT'></td> </tr>
-    <tr> <td>WASM_HAS_SIMD_SUPPORT</td> <td id='WASM_HAS_SIMD_SUPPORT'></td> </tr>
+    <tr> <td>WEBGL_VERSION</td> <td id='host-webglversion'>WEBGL NOT SUPPORTED</td> </tr>
+    <tr> <td>WEBGL_FORCE_F16_TEXTURES</td> <td id='host-forcef16'>WEBGL NOT SUPPORTED</td> </tr>
+    <tr> <td>WEBGL_MAX_TEXTURE_SIZE</td> <td id='WEBGL_MAX_TEXTURE_SIZE'>WEBGL NOT SUPPORTED</td> </tr>
+    <tr> <td>WASM_HAS_MULTITHREAD_SUPPORT</td> <td id='WASM_HAS_MULTITHREAD_SUPPORT'>WASM NOT SUPPORTED</td> </tr>
+    <tr> <td>WASM_HAS_SIMD_SUPPORT</td> <td id='WASM_HAS_SIMD_SUPPORT'>WASM NOT SUPPORTED</td> </tr>
     <tr> <td>DEBUG</td> <td id='host-debug'></td> </tr>
   </table>
   </div>
