@@ -56,10 +56,10 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
 <!-- ===================================================  -->
 <!-- Output                                                 -->
 <!-- ===================================================  -->
-<h3> Debug Output</h3>
 
-<!-- <texarea type="text" id='test-output' style="white-space: pre-wrap;"> -->
-<texarea type="text" id='test-output'>
+
+<texarea type="text" id='test-output' style="white-space: pre-wrap; overflow-y: scroll; height: 100px; resize: none;">
+
 
 <script>
 var node = document.getElementById('test-output');
