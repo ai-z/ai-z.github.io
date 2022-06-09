@@ -58,7 +58,7 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
 <!-- ===================================================  -->
 
 
-<texarea type="text" id='test-output' style="white-space: pre-wrap; overflow-y: scroll; height: 100px; resize: none;">
+<texarea type="text" id='test-output' style="overflow-y: scroll; height: 100px; resize: none;">
 
 
 <script>
