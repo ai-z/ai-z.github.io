@@ -22,7 +22,7 @@ async function StartTest(test_id) {
     let backend = GetSelectedOption("opt-backend");
     //let webglVersion = GetSelectedOption("opt-webglversion");
     let force16 = GetSelectedOption("opt-forcef16");
-
+    WriteValue(test_id, "RUNNING");
     w = new Worker(`./scripts/worker.js?test_id=${test_id}&backend=${backend}&force16=${force16}`);
 
     w.onmessage = function(event) {
@@ -40,6 +40,7 @@ async function StartTest(test_id) {
       console.log(event);
       w.terminate();
       w = undefined;
+      WriteValue(test_id, "ERROR");
     };
   }    
 }

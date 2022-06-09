@@ -14,14 +14,17 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
     <tr>
       <th>Test</th>
       <th>Results</th>
+      <th>Source</th>
     </tr>
     <tr>
       <td><button onclick="StartTest('FLOPS')">FLOPs</button></td>
       <td id="FLOPS"></td>
+      <td><a href="https://github.com/ai-z/ai-z.github.io/blob/dafdb1fb1b007743510dceaa8a84762ad5bdc522/scripts/worker.js#L42">GitHub</a></td>
     </tr>
     <tr>
       <td><button onclick="StartTest('MOBILENET')">MOBILENET</button></td>
-      <td id="MOBILENET"></td>
+      <td id="MOBILENET V2 INFERENCE"></td>
+      <td><a href="https://github.com/ai-z/ai-z.github.io/blob/dafdb1fb1b007743510dceaa8a84762ad5bdc522/scripts/worker.js#L42">GitHub</a></td>
     </tr>
   </table>
 
