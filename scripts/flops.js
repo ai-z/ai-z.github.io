@@ -18,13 +18,13 @@ async function FlopsTest() {
 
 
     //console.log(backend);
-    //console.log(webglVersion);
+    console.log(webglVersion);
     //console.log(force16);
   
 
     //try {
         await tf.setBackend(backend);
-        tf.env().set('WEBGL_VERSION', webglVersion);
+        //tf.env().set('WEBGL_VERSION', webglVersion);
         tf.env().set('WEBGL_FORCE_F16_TEXTURES', force16);
     //}
     //catch(error) {
