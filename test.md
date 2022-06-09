@@ -60,4 +60,9 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
 
 <texarea type="text" id='test-output' style="white-space: pre-wrap;">
 
+<script>
+var node = document.getElementById('test-output');
+node.innerHTML += "FIRST";
+</script>
+
 <script src="scripts/main.js"></script>
