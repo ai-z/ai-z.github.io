@@ -10,6 +10,9 @@ function WriteValue(id, value) {
 
 async function StartTest() {
 
+  let e = document.getElementById("opt-backend");
+  let backend = e.options[e.selectedIndex].text;
+
   if (typeof(Worker) !== "undefined") {
     if (typeof(w) == "undefined") {
       w = new Worker("./scripts/flops.js");
@@ -21,6 +24,7 @@ async function StartTest() {
       WriteOutput(result[1]);
       
       w.terminate();
+      w = undefined;
       console.log(w);
     };
   
@@ -28,6 +32,7 @@ async function StartTest() {
       //WriteOutput(event.data);
       console.log(event);
       w.terminate();
+      w = undefined;
       console.log(w);
     };
   }
@@ -76,12 +81,13 @@ function CreateDropDown(id, options, selected)
   let str = `<select id="${id}">`;
   let selected_str;
 
-  for(let i=0 ; i < options.length; i++)
+  for(let i=0 ; i < options.length; i++) {
     selected_str = "";
     if(options[i] == selected)
       selected_str = "selected";
 
     str += `<option value="${options[i]} ${selected_str}">${options[i]}</option>`;
+  }
   
   str += "</select>";
 

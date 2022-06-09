@@ -54,7 +54,7 @@ async function FlopsTest() {
     totalFlops = 2 * Math.pow(matSize,3);
     gflops = 1.0e-9 * totalFlops / bestTime;
 
-    debugOutput += debug_tab + "Result: " + gflops + "gflop/s";
+    debugOutput += debug_tab + "Result: " + gflops + " gflop/s";
 
     postMessage([gflops, debugOutput]);
 }
