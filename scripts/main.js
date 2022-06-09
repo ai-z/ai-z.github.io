@@ -28,7 +28,7 @@ async function StartTest(test_id) {
     w.onmessage = function(event) {
       let result = event.data;
       WriteValue(test_id, result[0]);
-      WriteOutput("\n");
+      //WriteOutput("\n");
       WriteOutput(result[1]);
         
       w.terminate();
