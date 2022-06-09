@@ -30,6 +30,7 @@ async function StartTest(test_id) {
       WriteValue(test_id, result[0]);
       //WriteOutput("\n");
       WriteOutput(result[1]);
+      console.log(result[1]);
         
       w.terminate();
       w = undefined;
