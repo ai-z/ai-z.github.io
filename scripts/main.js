@@ -10,32 +10,31 @@ function WriteValue(id, value) {
 
 async function StartTest() {
 
-  let e = document.getElementById("opt-backend");
-  let backend = e.options[e.selectedIndex].text;
+  if (typeof(Worker) !== "undefined")
+    return;
 
-  if (typeof(Worker) !== "undefined") {
-    if (typeof(w) == "undefined") {
-      w = new Worker(`./scripts/flops.js?backend=${backend}`);
+  if (typeof(w) == "undefined") {
+    let e = document.getElementById("opt-backend");
+    let backend = e.options[e.selectedIndex].text;
 
-      w.onmessage = function(event) {
-        let result = event.data;
-        WriteValue('tr-flops', `${result[0].toFixed(3)} GFlops/s`);
-        WriteOutput(result[1]);
+    w = new Worker(`./scripts/flops.js?backend=${backend}`);
+
+    w.onmessage = function(event) {
+      let result = event.data;
+      WriteValue('tr-flops', `${result[0].toFixed(3)} GFlops/s`);
+      WriteOutput(result[1]);
         
-        w.terminate();
-        w = undefined;
-        console.log(w);
-      };
+      w.terminate();
+      w = undefined;
+    };
     
-      w.onerror = function(event) {
-        //WriteOutput(event.data);
-        console.log(event);
-        w.terminate();
-        w = undefined;
-        console.log(w);
-      };
-    }    
-  }
+    w.onerror = function(event) {
+      //WriteOutput(event.data);
+      console.log(event);
+      w.terminate();
+      w = undefined;
+    };
+  }    
 }
 
 function getBrowser(){                 
@@ -62,7 +61,6 @@ function getOS() {
   return "Unknown";
 }
 
-
 function getGPU() {
   let canvas = document.getElementById("glcanvas");
   let gl = canvas.getContext("experimental-webgl");
@@ -73,8 +71,6 @@ function getGPU() {
 
   return "Unknown";
 }
-
-
 
 function CreateDropDown(id, options, selected)
 {
