@@ -57,14 +57,6 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
 <!-- Output                                                 -->
 <!-- ===================================================  -->
 
-
-<!--<texarea type="text" id='test-output' style="overflow-y: scroll; height: 100px; resize: none;">-->
 <div id='test-output' style="height:400px;width:600px;overflow:auto;background-color:blue;color:white;scrollbar-base-color:gold;font-family:sans-serif;padding:10px; white-space: pre-wrap"></div>
-
-
-<script>
-var node = document.getElementById('test-output');
-node.innerHTML += "FIRST";
-</script>
 
 <script src="scripts/main.js"></script>

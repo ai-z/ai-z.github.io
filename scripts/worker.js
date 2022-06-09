@@ -73,7 +73,8 @@ async function MobileNetTest(parameters) {
         let totalKernelMs = 0;
         for (let j = 0; j < profile_info.kernels.length; j++) {
             totalKernelMs += profile_info.kernels[j].kernelTimeMs;
-            debugOutput += debug_tab + profile_info.kernels[j].name + ": " + totalKernelMs.toString() + " ms\n";
+            let kernelMs = profile_info.kernels[j].kernelTimeMs.toFixed(3).toString();
+            debugOutput += debug_tab + profile_info.kernels[j].name + ": " + kernelMs + " ms\n";
         }
 
         debugOutput += debug_tab + "Total: " + totalKernelMs + " ms\n";
