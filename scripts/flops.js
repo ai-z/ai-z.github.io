@@ -12,8 +12,10 @@ async function FlopsTest() {
     location.search.slice(1).split("&").forEach( function(key_value) { var kv = key_value.split("="); parameters[kv[0]] = kv[1]; })
 
     let backend = parameters['backend'];
-    let webglVersion = parameters['webglVersion'];
-    let force16 = parameters['force16'];
+    let webglVersion = Number(parameters['webglVersion']);
+    let force16 = Boolean(parameters['force16']);
+
+
 
     //console.log(backend);
     //console.log(webglVersion);
@@ -22,8 +24,8 @@ async function FlopsTest() {
 
     //try {
         await tf.setBackend(backend);
-        //tf.env().set('WEBGL_VERSION', webglVersion);
-        //tf.env().set('WEBGL_FORCE_F16_TEXTURES', force16);
+        tf.env().set('WEBGL_VERSION', webglVersion);
+        tf.env().set('WEBGL_FORCE_F16_TEXTURES', force16);
     //}
     //catch(error) {
     //    throw new Error('Error applying parameters'); 
