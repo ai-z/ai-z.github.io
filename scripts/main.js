@@ -108,6 +108,8 @@ function Init()
     backendOptions.push("wasm");
   
   let backend = tf.getBackend();
+  console.log("chosen backend!");
+  console.log(backend);
   let webgl_version = tf.env().get('WEBGL_VERSION');
   let force_f16 = tf.env().get('WEBGL_FORCE_F16_TEXTURES');
 
