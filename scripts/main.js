@@ -101,7 +101,9 @@ function Init()
   //tf.engine().registryFactory
   backend = tf.getBackend();
   webgl_version = tf.env().get('WEBGL_VERSION');
+  console.log(webgl_version);
   force_f16 = tf.env().get('WEBGL_FORCE_F16_TEXTURES');
+  console.log(force_f16);
 
   WriteValue('host-gpu', getGPU());
   WriteValue('host-os', getOS());
