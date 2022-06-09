@@ -17,11 +17,11 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
     </tr>
     <tr>
       <td><button onclick="StartTest('FLOPS')">FLOPs</button></td>
-      <td id="tr-flops"></td>
+      <td id="FLOPS"></td>
     </tr>
     <tr>
       <td><button onclick="StartTest('MOBILENET')">MOBILENET</button></td>
-      <td id="tr-mobilenet"></td>
+      <td id="MOBILENET"></td>
     </tr>
   </table>
 

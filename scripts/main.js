@@ -23,11 +23,11 @@ async function StartTest(test_id) {
     //let webglVersion = GetSelectedOption("opt-webglversion");
     let force16 = GetSelectedOption("opt-forcef16");
 
-    w = new Worker(`./scripts/worker.js?backend=${backend}&force16=${force16}`);
+    w = new Worker(`./scripts/worker.js?test_id=${test_id}&backend=${backend}&force16=${force16}`);
 
     w.onmessage = function(event) {
       let result = event.data;
-      WriteValue('tr-flops', `${result[0].toFixed(3)} GFlops/s`);
+      WriteValue(test_id, `${result[0].toFixed(3)} GFlops/s`);
       WriteOutput("\n");
       WriteOutput(result[1]);
         
