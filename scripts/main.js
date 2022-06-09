@@ -104,7 +104,7 @@ function Init()
   if (tf.env().get('HAS_WEBGL'))
     backendOptions.push("webgl");
 
-  if(tf.engine().registryFactory.indexOf("wasm") != -1)
+  if(JSON.stringify(tf.engine().registryFactory).indexOf("wasm") != -1)
     backendOptions.push("wasm");
   
   let backend = tf.getBackend();
