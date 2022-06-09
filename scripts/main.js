@@ -99,31 +99,42 @@ function CreateDropDown(id, options, selected)
 
 function Init()
 { 
-  let backendOptions = ["cpu"];
-
-  if (tf.env().get('HAS_WEBGL'))
-    backendOptions.push("webgl");
-
-  if(JSON.stringify(tf.engine().registryFactory).indexOf("wasm") != -1)
-    backendOptions.push("wasm");
-  
-  let backend = tf.getBackend();
-  console.log("chosen backend!");
-  console.log(backend);
-  let webgl_version = tf.env().get('WEBGL_VERSION');
-  let force_f16 = tf.env().get('WEBGL_FORCE_F16_TEXTURES');
-
-
+  //basic info
   WriteValue('host-gpu', getGPU());
   WriteValue('host-os', getOS());
   WriteValue('host-browser', getBrowser());
   WriteValue('host-tfversion', tf.version["tfjs"]);
-  WriteValue('host-tfbackend', CreateDropDown("opt-backend", backendOptions, backend));
-  //WriteValue('host-webglversion', CreateDropDown("opt-webglversion", [1, 2], webgl_version));
-  WriteValue('host-webglversion', webgl_version);
-  WriteValue('host-forcef16', CreateDropDown("opt-forcef16", [true, false], force_f16));
   WriteValue('host-debug', tf.env().get('DEBUG'));
-  WriteValue('WEBGL_MAX_TEXTURE_SIZE', tf.env().get('WEBGL_MAX_TEXTURE_SIZE'));
+
+  //backend info
+  let backendOptions = ["cpu"];
+
+  //webgl specific
+  if (tf.env().get('HAS_WEBGL')) {
+    backendOptions.push("webgl");
+    await tf.setBackend("webgl");
+    let webgl_version = tf.env().get('WEBGL_VERSION');
+    let force_f16 = tf.env().get('WEBGL_FORCE_F16_TEXTURES');
+    //WriteValue('host-webglversion', CreateDropDown("opt-webglversion", [1, 2], webgl_version));
+    WriteValue('host-webglversion', webgl_version);
+    WriteValue('host-forcef16', CreateDropDown("opt-forcef16", [true, false], force_f16));
+    WriteValue('WEBGL_MAX_TEXTURE_SIZE', tf.env().get('WEBGL_MAX_TEXTURE_SIZE'));
+  }
+    
+  //wasm specific
+  if(JSON.stringify(tf.engine().registryFactory).indexOf("wasm") != -1)
+  {
+    backendOptions.push("wasm");
+    WriteValue('WASM_HAS_MULTITHREAD_SUPPORT', tf.env().get('WASM_HAS_MULTITHREAD_SUPPORT'));
+    WriteValue('WASM_HAS_SIMD_SUPPORT', tf.env().get('WASM_HAS_SIMD_SUPPORT'));
+  }
+    
+  
+  let backend = tf.getBackend();
+  console.log("chosen backend!");
+  console.log(backend);
+  
+  WriteValue('host-tfbackend', CreateDropDown("opt-backend", backendOptions, backend));
 }
 
 async function run() {
