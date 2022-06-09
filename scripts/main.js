@@ -97,13 +97,7 @@ function CreateDropDown(id, options, selected)
 }
 
 function Init()
-{
-  //make sure the backend is created
-  //tf.backend();
-
-
-  test = "<select name='cars' id='cars'> <option value='volvo'>Volvo</option> <option value='saab'>Saab</option> </select>"
-
+{ 
   //tf.engine().registryFactory
   let backend = tf.getBackend();
   let webgl_version = tf.env().get('WEBGL_VERSION');
