@@ -116,7 +116,6 @@ function Init()
 
 
   var node = document.getElementById('div-hostinfo');
-
 }
 
 async function run() {
@@ -126,6 +125,5 @@ async function run() {
 }
 
 document.addEventListener('DOMContentLoaded', run);
-
 
 Init();
