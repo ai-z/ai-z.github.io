@@ -48,25 +48,49 @@ async function FlopsTest(parameters) {
 }
 
 async function MobileNetTest(parameters) {
-    let totalMs = 666;
 
+    const numIterations = 24;
     const modelUrl = "https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/classification/2";
     const model = await tf.loadGraphModel(modelUrl, {fromTFHub: true});
     const zeros = tf.zeros([1, 224, 224, 3]);
-    //const timeInfo =
-    //await timeModelInference(model, zeros, 2);
+    
+    let bestTime = Infinity;
+    let debugOutput = "";
 
-    model.predict(zeros);
+    for(let i=0; i < numIterations; i++) {
 
-    postMessage([`${totalMs.toFixed(3)} ms`, "MobileNetTest"]);
+        //var t0 = performance.now();
+        
+        const profile_info = await tf.profile(() => {
+            let res = model.predict(zeros);
+            res.dataSync();
+            res.dispose();
+        });
+    
+        //var t1 = performance.now();
+
+        debugOutput = "MOBILENET kernel time(s):\n";
+        let totalKernelMs = 0;
+        for (let j = 0; j < profile_info.kernels.length; j++) {
+            totalKernelMs += profile_info.kernels[j].kernelTimeMs;
+            debugOutput += debug_tab + profile_info.kernels[j].name + ": " + totalKernelMs.toString() + " ms\n";
+        }
+
+        debugOutput += debug_tab + "Total: " + totalKernelMs + " ms\n";
+        
+        if (totalKernelMs < bestTime)
+            bestTime = totalKernelMs;
+    }
+
+    postMessage([`${totalKernelMs.toFixed(3)} ms`, debugOutput]);
 }
 
 async function InitTest()
 {
-    // Init flags
     importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
     //importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js");
 
+    //Parse parameters
     var parameters = {}
     location.search.slice(1).split("&").forEach( function(key_value) { var kv = key_value.split("="); parameters[kv[0]] = kv[1]; })
 
@@ -76,6 +100,7 @@ async function InitTest()
 
     console.log(test_id);
     
+    //Apply ENV flags
     await tf.setBackend(backend);
     tf.env().set('WEBGL_FORCE_F16_TEXTURES', force16);
 
