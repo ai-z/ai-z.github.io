@@ -97,7 +97,7 @@ function CreateDropDown(id, options, selected)
   return str;
 }
 
-function Init()
+async function Init()
 { 
   //basic info
   WriteValue('host-gpu', getGPU());

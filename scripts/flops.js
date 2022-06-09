@@ -14,22 +14,13 @@ async function FlopsTest() {
     let backend = parameters['backend'];
     let force16 = Boolean(parameters['force16']);
 
-
-
     console.log(backend);
  
+
+    await tf.setBackend(backend);
+    tf.env().set('WEBGL_FORCE_F16_TEXTURES', force16);
   
-
-    //try {
-        await tf.setBackend(backend);
-        //tf.env().set('WEBGL_VERSION', webglVersion);
-        tf.env().set('WEBGL_FORCE_F16_TEXTURES', force16);
-    //}
-    //catch(error) {
-    //    throw new Error('Error applying parameters'); 
-    //}
     
-
     let bestTime = Infinity;
     let debugOutput = "";
 
