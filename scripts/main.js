@@ -118,9 +118,7 @@ function Init()
   WriteValue('host-webglversion', CreateDropDown("opt-webglversion", [1, 2], webgl_version));
   WriteValue('host-forcef16', CreateDropDown("opt-forcef16", [true, false], force_f16));
   WriteValue('host-debug', tf.env().get('DEBUG'));
-
-
-  var node = document.getElementById('div-hostinfo');
+  WriteValue('WEBGL_MAX_TEXTURE_SIZE', tf.env().get('WEBGL_MAX_TEXTURE_SIZE'));
 }
 
 async function run() {
