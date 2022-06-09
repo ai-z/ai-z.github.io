@@ -37,10 +37,10 @@ async function FlopsTest() {
         let totalKernelMs = 0;
         for (let j = 0; j < profile_info.kernels.length; j++) {
             totalKernelMs += profile_info.kernels[j].kernelTimeMs;
-            debugOutput += debug_tab + profile_info.kernels[j].name + ": " + totalKernelMs.toString() + "ms";
+            debugOutput += debug_tab + profile_info.kernels[j].name + ": " + totalKernelMs.toString() + "ms\n";
         }
 
-        debugOutput += debug_tab + "Total: " + totalKernelMs + "ms";
+        debugOutput += debug_tab + "Total: " + totalKernelMs + "ms\n";
         
         let time = (totalKernelMs) / 1000;
 

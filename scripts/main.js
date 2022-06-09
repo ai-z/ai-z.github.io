@@ -71,12 +71,17 @@ function getGPU() {
 
 
 
-function CreateDropDown(id, options)
+function CreateDropDown(id, options, selected)
 {
-  let str = "<select>"
-  
+  let str = `<select id="${id}">`;
+  let selected_str;
+
   for(let i=0 ; i < options.length; i++)
-    str += `<option value="${options[i]}">${options[i]}</option>`;
+    selected_str = "";
+    if(options[i] == selected)
+      selected_str = "selected";
+
+    str += `<option value="${options[i]} ${selected_str}">${options[i]}</option>`;
   
   str += "</select>";
 
@@ -86,18 +91,19 @@ function CreateDropDown(id, options)
 function Init()
 {
   //make sure the backend is created
-  tf.backend();
-
-  tf.setBackend('webgpu');
+  //tf.backend();
 
 
   test = "<select name='cars' id='cars'> <option value='volvo'>Volvo</option> <option value='saab'>Saab</option> </select>"
+
+  //tf.engine().registryFactory
+  backend = tf.getBackend();
 
   WriteValue('host-gpu', getGPU())
   WriteValue('host-os', getOS())
   WriteValue('host-browser', getBrowser())
   WriteValue('host-tfversion', tf.version["tfjs"])
-  WriteValue('host-tfbackend', CreateDropDown(test, ["webgl", "cpu"]))
+  WriteValue('host-tfbackend', CreateDropDown("opt-backend", ["webgl", "cpu"], backend))
   WriteValue('host-webglversion', tf.env().get('WEBGL_VERSION'))
   WriteValue('host-forcef16', tf.env().get('WEBGL_FORCE_F16_TEXTURES'))
   WriteValue('host-debug', tf.env().get('DEBUG'))
@@ -114,7 +120,6 @@ async function run() {
 }
 
 document.addEventListener('DOMContentLoaded', run);
-
 
 
 Init();
