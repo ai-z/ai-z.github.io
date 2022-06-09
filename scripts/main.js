@@ -20,10 +20,10 @@ async function StartTest() {
 
   if (typeof(w) == "undefined") {
     let backend = GetSelectedOption("opt-backend");
-    let webglVersion = GetSelectedOption("opt-webglversion");
+    //let webglVersion = GetSelectedOption("opt-webglversion");
     let force16 = GetSelectedOption("opt-forcef16");
 
-    w = new Worker(`./scripts/flops.js?backend=${backend}&webglVersion=${webglVersion}&force16=${force16}`);
+    w = new Worker(`./scripts/flops.js?backend=${backend}&force16=${force16}`);
 
     w.onmessage = function(event) {
       let result = event.data;

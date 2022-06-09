@@ -12,14 +12,12 @@ async function FlopsTest() {
     location.search.slice(1).split("&").forEach( function(key_value) { var kv = key_value.split("="); parameters[kv[0]] = kv[1]; })
 
     let backend = parameters['backend'];
-    let webglVersion = Number(parameters['webglVersion']);
     let force16 = Boolean(parameters['force16']);
 
 
 
-    //console.log(backend);
-    console.log(webglVersion);
-    //console.log(force16);
+    console.log(backend);
+ 
   
 
     //try {
