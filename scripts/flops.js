@@ -8,6 +8,14 @@ async function FlopsTest() {
     const matSize = 1024;
     const numIterations = 24;
 
+    var parameters = {}
+    location.search.slice(1).split("&").forEach( function(key_value) { var kv = key_value.split("="); parameters[kv[0]] = kv[1]; })
+
+    let backend = parameters['backend'];
+
+    console.log(backend);
+  
+
     try {
         await tf.setBackend('webgl');
     }
@@ -37,10 +45,10 @@ async function FlopsTest() {
         let totalKernelMs = 0;
         for (let j = 0; j < profile_info.kernels.length; j++) {
             totalKernelMs += profile_info.kernels[j].kernelTimeMs;
-            debugOutput += debug_tab + profile_info.kernels[j].name + ": " + totalKernelMs.toString() + "ms\n";
+            debugOutput += debug_tab + profile_info.kernels[j].name + ": " + totalKernelMs.toString() + " ms\n";
         }
 
-        debugOutput += debug_tab + "Total: " + totalKernelMs + "ms\n";
+        debugOutput += debug_tab + "Total: " + totalKernelMs + " ms\n";
         
         let time = (totalKernelMs) / 1000;
 

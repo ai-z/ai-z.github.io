@@ -15,26 +15,26 @@ async function StartTest() {
 
   if (typeof(Worker) !== "undefined") {
     if (typeof(w) == "undefined") {
-      w = new Worker("./scripts/flops.js");
-    }
+      w = new Worker(`./scripts/flops.js?backend=${backend}`);
 
-    w.onmessage = function(event) {
-      let result = event.data;
-      WriteValue('tr-flops', `${result[0].toFixed(3)} GFlops/s`);
-      WriteOutput(result[1]);
-      
-      w.terminate();
-      w = undefined;
-      console.log(w);
-    };
-  
-    w.onerror = function(event) {
-      //WriteOutput(event.data);
-      console.log(event);
-      w.terminate();
-      w = undefined;
-      console.log(w);
-    };
+      w.onmessage = function(event) {
+        let result = event.data;
+        WriteValue('tr-flops', `${result[0].toFixed(3)} GFlops/s`);
+        WriteOutput(result[1]);
+        
+        w.terminate();
+        w = undefined;
+        console.log(w);
+      };
+    
+      w.onerror = function(event) {
+        //WriteOutput(event.data);
+        console.log(event);
+        w.terminate();
+        w = undefined;
+        console.log(w);
+      };
+    }    
   }
 }
 
@@ -129,10 +129,3 @@ document.addEventListener('DOMContentLoaded', run);
 
 
 Init();
-
-
-
-
-
-
-      
