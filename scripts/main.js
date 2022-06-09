@@ -13,7 +13,7 @@ function GetSelectedOption(id) {
   return e.options[e.selectedIndex].text;
 }
 
-async function StartTest() {
+async function StartTest(test_id) {
 
   if (typeof(Worker) == "undefined")
     return;
@@ -23,7 +23,7 @@ async function StartTest() {
     //let webglVersion = GetSelectedOption("opt-webglversion");
     let force16 = GetSelectedOption("opt-forcef16");
 
-    w = new Worker(`./scripts/flops.js?backend=${backend}&force16=${force16}`);
+    w = new Worker(`./scripts/worker.js?backend=${backend}&force16=${force16}`);
 
     w.onmessage = function(event) {
       let result = event.data;
