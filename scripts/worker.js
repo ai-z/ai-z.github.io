@@ -49,6 +49,15 @@ async function FlopsTest(parameters) {
 
 async function MobileNetTest(parameters) {
     let totalMs = 666;
+
+    const modelUrl = https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/classification/2';
+    const model = await tf.loadGraphModel(modelUrl, {fromTFHub: true});
+    const zeros = tf.zeros([1, 224, 224, 3]);
+    //const timeInfo =
+    //await timeModelInference(model, zeros, 2);
+
+    model.predict(zeros);
+
     postMessage([`${totalMs.toFixed(3)} ms`, "MobileNetTest"]);
 }
 
@@ -56,7 +65,7 @@ async function InitTest()
 {
     // Init flags
     importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js");
-    importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js");
+    //importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js");
 
     var parameters = {}
     location.search.slice(1).split("&").forEach( function(key_value) { var kv = key_value.split("="); parameters[kv[0]] = kv[1]; })
