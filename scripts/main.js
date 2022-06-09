@@ -21,12 +21,14 @@ async function StartTest() {
       WriteOutput(result[1]);
       
       w.terminate();
+      console.log(w);
     };
   
     w.onerror = function(event) {
       //WriteOutput(event.data);
       console.log(event);
       w.terminate();
+      console.log(w);
     };
   }
 }
