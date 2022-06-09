@@ -104,15 +104,17 @@ function Init()
 
   //tf.engine().registryFactory
   backend = tf.getBackend();
+  webgl_version = tf.env().get('WEBGL_VERSION');
+  force_f16 = tf.env().get('WEBGL_FORCE_F16_TEXTURES');
 
-  WriteValue('host-gpu', getGPU())
-  WriteValue('host-os', getOS())
-  WriteValue('host-browser', getBrowser())
-  WriteValue('host-tfversion', tf.version["tfjs"])
-  WriteValue('host-tfbackend', CreateDropDown("opt-backend", ["webgl", "cpu"], backend))
-  WriteValue('host-webglversion', tf.env().get('WEBGL_VERSION'))
-  WriteValue('host-forcef16', tf.env().get('WEBGL_FORCE_F16_TEXTURES'))
-  WriteValue('host-debug', tf.env().get('DEBUG'))
+  WriteValue('host-gpu', getGPU());
+  WriteValue('host-os', getOS());
+  WriteValue('host-browser', getBrowser());
+  WriteValue('host-tfversion', tf.version["tfjs"]);
+  WriteValue('host-tfbackend', CreateDropDown("opt-backend", ["webgl", "cpu"], backend));
+  WriteValue('host-webglversion', CreateDropDown("opt-webglversion", [1, 2], webgl_version));
+  WriteValue('host-forcef16', CreateDropDown("opt-forcef16", [true, false], force_f16));
+  WriteValue('host-debug', tf.env().get('DEBUG'));
 
 
   var node = document.getElementById('div-hostinfo');
