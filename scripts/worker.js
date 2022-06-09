@@ -44,11 +44,12 @@ async function FlopsTest(parameters) {
 
     debugOutput += debug_tab + "Result: " + gflops + " gflop/s";
 
-    postMessage([gflops, debugOutput]);
+    postMessage([`${gflops.toFixed(3)} GFlops/s`, debugOutput]);
 }
 
 async function MobileNetTest(parameters) {
-    postMessage([777, "MobileNetTest"]);
+    let totalMs = 666;
+    postMessage([`${totalMs.toFixed(3)} ms`, "MobileNetTest"]);
 }
 
 async function InitTest()
