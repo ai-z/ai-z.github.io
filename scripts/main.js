@@ -22,6 +22,7 @@ async function StartTest() {
     w.onmessage = function(event) {
       let result = event.data;
       WriteValue('tr-flops', `${result[0].toFixed(3)} GFlops/s`);
+      WriteOutput("\n");
       WriteOutput(result[1]);
         
       w.terminate();
