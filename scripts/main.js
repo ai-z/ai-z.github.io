@@ -18,14 +18,10 @@ async function StartTest() {
     }
 
     w.onmessage = function(event) {
-      let gflops = event.data;
-      WriteValue('tr-flops', `${gflops.toFixed(3)} GFlops/s`);
-      WriteOutput(event.data);
-      WriteOutput(JSON.stringify(tf.env().getFlags(), null, 10));
-      WriteOutput(JSON.stringify(tf.version, null, 2));
-  
-      console.log(tf.env().getFlags());
-      console.log(tf.version);
+      let result = event.data;
+      WriteValue('tr-flops', `${result[0].toFixed(3)} GFlops/s`);
+      WriteOutput(result[1]);
+      
       w.terminate();
     };
   

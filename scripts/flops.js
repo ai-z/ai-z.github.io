@@ -15,6 +15,7 @@ async function FlopsTest() {
     
 
     let bestTime = Infinity;
+    let debugOutput = "";
 
     for(let i=0; i < numIterations; i++) {
         const mat1 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
@@ -30,9 +31,11 @@ async function FlopsTest() {
     
         //var t1 = performance.now();
 
+        debugOutput = "FLOPs kernel(s) time:\n";
         let totalKernelMs = 0;
         for (let j = 0; j < profile_info.kernels.length; j++) {
             totalKernelMs += profile_info.kernels[j].kernelTimeMs;
+            debugOutput += profile_info.kernels[j].name + ": " + totalKernelMs.toString() + "ms";
         }
         
         let time = (totalKernelMs) / 1000;
@@ -47,7 +50,7 @@ async function FlopsTest() {
     totalFlops = 2 * Math.pow(matSize,3);
     gflops = 1.0e-9 * totalFlops / bestTime;
 
-    postMessage(gflops);
+    postMessage([gflops, debugOutput]);
 }
 
 FlopsTest();
