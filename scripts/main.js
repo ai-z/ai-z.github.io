@@ -79,6 +79,8 @@ function CreateDropDown(id, options, selected)
 
   for(let i=0 ; i < options.length; i++) {
     selected_str = "";
+    console.log(options[i]);
+    console.log(selected);
     if(options[i] == selected) {
       selected_str = "selected";
       console.log("SELECTED!");
@@ -102,10 +104,10 @@ function Init()
   test = "<select name='cars' id='cars'> <option value='volvo'>Volvo</option> <option value='saab'>Saab</option> </select>"
 
   //tf.engine().registryFactory
-  backend = tf.getBackend();
-  webgl_version = tf.env().get('WEBGL_VERSION');
+  let backend = tf.getBackend();
+  let webgl_version = tf.env().get('WEBGL_VERSION');
   console.log(webgl_version);
-  force_f16 = tf.env().get('WEBGL_FORCE_F16_TEXTURES');
+  let force_f16 = tf.env().get('WEBGL_FORCE_F16_TEXTURES');
   console.log(force_f16);
 
   WriteValue('host-gpu', getGPU());
