@@ -124,9 +124,11 @@ async function Init()
   }
     
   //wasm specific
+  //remove wasm option for now since it doesn't work in a web worker
+  //https://github.com/tensorflow/tfjs/issues/6517
   if(JSON.stringify(tf.engine().registryFactory).indexOf("wasm") != -1)
   {
-    backendOptions.push("wasm");
+    //backendOptions.push("wasm");
     WriteValue('WASM_HAS_MULTITHREAD_SUPPORT', await tf.env().getAsync('WASM_HAS_MULTITHREAD_SUPPORT'));
     WriteValue('WASM_HAS_SIMD_SUPPORT', await tf.env().getAsync('WASM_HAS_SIMD_SUPPORT'));
   }
