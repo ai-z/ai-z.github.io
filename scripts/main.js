@@ -79,8 +79,11 @@ function CreateDropDown(id, options, selected)
 
   for(let i=0 ; i < options.length; i++) {
     selected_str = "";
-    if(options[i] == selected)
+    if(options[i] == selected) {
       selected_str = "selected";
+      console.log("SELECTED!");
+    }
+      
 
     str += `<option value="${options[i]} ${selected_str}">${options[i]}</option>`;
   }
