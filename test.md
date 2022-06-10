@@ -32,9 +32,12 @@ tags: [tensorflow.js, gflops, performance, test, benchmark]
 <!-- ===================================================  -->
 <!-- Parameters                                           -->
 <!-- ===================================================  -->
-<h3> Parameters </h3>
 <div id='div-hostinfo'>
   <table id='table-hostinfo' border='1' border-width='2px'>
+    <tr>
+      <th>Parameters</th>
+      <th></th>
+    </tr>
     <tr> <td>GPU</td> <td id="host-gpu"></td> </tr>
     <tr> <td>OS</td> <td id="host-os"></td> </tr>
     <tr> <td>BROWSER</td> <td id="host-browser"></td> </tr>
