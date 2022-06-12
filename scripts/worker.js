@@ -7,9 +7,11 @@ async function FlopsTest(parameters) {
     let bestTime = Infinity;
     let debugOutput = "";
 
+    const mat1 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
+    const mat2 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
+
     for(let i=0; i < numIterations; i++) {
-        const mat1 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
-        const mat2 = tf.randomUniform([matSize, matSize], 1, 2, tf.float32);
+        
 
         //var t0 = performance.now();
         
@@ -35,9 +37,11 @@ async function FlopsTest(parameters) {
         if (time < bestTime)
             bestTime = time;
     
-        mat1.dispose();
-        mat2.dispose();
+        
     }
+
+    mat1.dispose();
+    mat2.dispose();
 
     totalFlops = 2 * Math.pow(matSize,3);
     gflops = 1.0e-9 * totalFlops / bestTime;
