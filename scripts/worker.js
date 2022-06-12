@@ -1,7 +1,7 @@
 var debug_tab = "     ";
 
 async function FlopsTest(parameters) {
-    const matSize = 256;
+    const matSize = 1024;
     const numIterations = 50;
     
     let bestTime = Infinity;
