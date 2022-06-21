@@ -2,7 +2,6 @@ title: AI-Z
 description: GPU usage graph in the terminal for AMD and NVIDIA GPUs
 show_downloads: false
 google_analytics: UA-136781191-2
-theme: jekyll-theme-hacker
 logo: assets/logo.png
 
 email: mathieu.poliquin@gmail.com
@@ -11,8 +10,9 @@ url: "https://www.ai-z.org"
 github:
   repository_url: https://github.com/ai-z/ai-z
 
-
+remote_theme: pages-themes/tactile@v0.2.0
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
