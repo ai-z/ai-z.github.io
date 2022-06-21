@@ -1,6 +1,6 @@
 ---
 layout: default
-tags: [gpu usage, amd, nvidia, graph, terminal, machine learning]
+tags: [gpu usage, amd, nvidia, graph, terminal, machine learning, pcie]
 ---
 
 AI-Z is a tool to display hardware resource usage and info on linux. Supports both NVIDIA and AMD GPUs.
