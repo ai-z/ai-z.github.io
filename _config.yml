@@ -1,6 +1,6 @@
 title: AI-Z
 description: GPU usage graph in the terminal for AMD and NVIDIA GPUs
-show_downloads: false
+show_downloads: true
 google_analytics: UA-136781191-2
 logo: assets/logo.png
 
